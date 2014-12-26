@@ -1,0 +1,9 @@
+{
+	"databases": {
+	    "testdb": {
+	        "dsn": "mysql:host=localhost;dbname=fucoso_orm_tests",
+	        "username": "root",
+	        "password": "root"
+	    }
+	}
+}

@@ -1,0 +1,29 @@
+{
+    "name": "fucoso/ORM",
+    "type": "library",
+    "description": "ORM for projects where Doctrine is not an option.",
+    "keywords": ["database","orm","php","mapping"],
+    "homepage": "https://github.com/fucoso/ORM",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Syed Haider Abbas",
+            "email": "contact@haiderabbas.me"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "symfony/config": "~2.6.0",
+        "symfony/yaml": "~2.6.0",
+        "ext-pdo": "*"
+    },
+    "require-dev": {
+        "mockery/mockery": "@stable"
+    },
+    "suggest": {
+        "apache/log4php": "Required for query logging"
+    },
+    "autoload": {
+        "psr-0": {"Fucoso\\ORM": "src/"}
+    }
+}

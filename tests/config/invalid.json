@@ -1,0 +1,7 @@
+{
+    "myconnection": {
+        "dsn": "sqlite:tmp/test.db",
+        "username": "",
+        "password": "",,,
+    }
+}

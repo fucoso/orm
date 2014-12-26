@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpunit bootstrap="../bootstrap.php" colors="true">
+    <testsuite name="Fucoso\ORM test suite">
+        <directory>../../../tests/Fucoso/ORM/Tests</directory>
+    </testsuite>
+    <filter>
+        <whitelist>
+            <directory suffix=".php">Fucoso\ORM</directory>
+        </whitelist>
+    </filter>
+    <php>
+        <const name="ORM_CONFIG_FILE" value="tests/travis/sqlite/config.json"/>
+    </php>
+</phpunit>
