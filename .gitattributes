@@ -1,6 +1,6 @@
-docs ignore-import
-example ignore-import
-tests ignore-import
-apigen.neon ignore-import
-TODO.md ignore-import
-README.md ignore-import
+docs export-ignore
+example export-ignore
+tests export-ignore
+apigen.neon export-ignore
+TODO.md export-ignore
+README.md export-ignore
