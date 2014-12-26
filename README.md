@@ -111,16 +111,6 @@ $data1 = $conn->query("SELECT * FROM mytable;");
 $data2 = $conn->preparedQuery("SELECT * FROM mytable WHERE mycol > :value", array("value" => 10))
 ```
 
-Why?
-----
-
-"Why another ORM?!?", I hear you cry.
-
-There are two reasons:
-
-* I work a lot on Informix on my day job and no other ORM I found supports it.
-* Writing an ORM is a great experience. You should try it.
-
 Inspirations:
 
 * [Django ORM](https://docs.djangoproject.com/en/dev/topics/db/)
