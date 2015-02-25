@@ -1,5 +1,5 @@
 {
-    "name": "fucoso/ORM",
+    "name": "fucoso/orm",
     "type": "library",
     "description": "ORM for projects where Doctrine is not an option.",
     "keywords": ["database","orm","php","mapping"],
