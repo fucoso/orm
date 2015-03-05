@@ -29,10 +29,7 @@ abstract class Model
      */
     public static function getMeta()
     {
-        return Parser::getMeta(
-            get_called_class(),
-            static::$_meta
-        );
+        return static::$_meta;
     }
 
     /**
@@ -373,13 +370,11 @@ abstract class Model
      */
     public function dump()
     {
-        $output = '';
-
         $meta = self::getMeta();
         $name = get_class($this) . " ($meta->database.$meta->table)";
 
-        $output .= "$name\n";
-        $output .= str_repeat("=", strlen($name)) . "\n";
+        echo "$name\n";
+        echo str_repeat("=", strlen($name)) . "\n";
 
         foreach ($meta->columns as $column) {
             $value = $this->$column;
@@ -395,9 +390,8 @@ abstract class Model
                 $value .= ' (PK)';
             }
 
-            $output .= "$column: $value\n";
+            echo "$column: $value\n";
         }
-        $output .= "\n";
-        return $output;
+        echo "\n";
     }
 }

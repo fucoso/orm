@@ -11,7 +11,7 @@ namespace Fucoso\ORM;
 class Autoloader
 {
     /**
-     * Registers an SPL autoloader for Fucoso\ORM.
+     * Registers an SPL autoloader.
      */
     public static function register()
     {

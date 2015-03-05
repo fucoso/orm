@@ -93,19 +93,23 @@ class DB
         $attributes = $db['attributes'];
 
         // Don't allow ATTR_ERRORMODE to be changed by the configuration,
-        // because Fucoso\ORM depends on errors throwing exceptions.
+        // because ORM depends on errors throwing exceptions.
         if (isset($attributes[PDO::ATTR_ERRMODE])
             && $attributes[PDO::ATTR_ERRMODE] !== PDO::ERRMODE_EXCEPTION) {
-            trigger_error("Fucoso\ORM: On connection $name, attribute PDO::ATTR_ERRMODE is set to something other than PDO::ERRMODE_EXCEPTION. This is not allowed because Fucoso\ORM depends on this setting. Skipping attribute definition.", E_USER_WARNING);
+            trigger_error(
+                "Attribute PDO::ATTR_ERRMODE is set to something other than " .
+                "PDO::ERRMODE_EXCEPTION for database \"$name\". This is not allowed because " .
+                "ORM depends on this setting. Skipping attribute definition.",
+                E_USER_WARNING
+            );
         }
 
         $attributes[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
 
-
         // Apply the attributes
         foreach ($attributes as $key => $value) {
             if (!$pdo->setAttribute($key, $value)) {
-                throw new \Exception("Failed setting attribute \"$key\" to \"$value\"");
+                throw new \Exception("Failed setting PDO attribute \"$key\" to \"$value\" on database \"$name\".");
             }
         }
 
@@ -168,7 +172,7 @@ class DB
         }
 
         // Commit all started transactions
-        foreach(self::$connections as $name => $connection) {
+        foreach (self::$connections as $name => $connection) {
             if ($connection->inTransaction()) {
                 $connection->commit();
             }
@@ -188,7 +192,7 @@ class DB
         }
 
         // Roll back all started transactions
-        foreach(self::$connections as $name => $connection) {
+        foreach (self::$connections as $name => $connection) {
             if ($connection->inTransaction()) {
                 $connection->rollBack();
             }

@@ -2,12 +2,10 @@
 
 namespace Fucoso\ORM\Config;
 
-use Symfony\Component\Config\Loader\Loader;
-
 /**
  * Loads array configurations (passthrough).
  */
-class ArrayConfigLoader extends FileLoader
+class ArrayLoader extends FileLoader
 {
     public function load($resource, $type = null)
     {

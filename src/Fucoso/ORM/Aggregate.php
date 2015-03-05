@@ -2,6 +2,8 @@
 
 namespace Fucoso\ORM;
 
+use Exception;
+
 /**
  * Generates the SELECT clause for aggregate statements.
  */
@@ -33,14 +35,14 @@ class Aggregate
     {
         if (!in_array($type, $this->types)) {
             $types = implode(', ', $this->types);
-            throw new \Exception("Invalid aggregate type [$type]. Supported types: $types.");
+            throw new Exception("Invalid aggregate type [$type]. Supported types: $types.");
         }
 
         if (!isset($column)) {
             if ($type === self::COUNT) {
                 $column = "*";
             } else {
-                throw new \Exception("Aggregate type [$type] requires a column to be given.");
+                throw new Exception("Aggregate type [$type] requires a column to be given.");
             }
         }
 
